@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Loader from './Loader';
 
 const containerVariants = {
   hidden: {
@@ -51,6 +52,7 @@ const Order = ({ pizza, setShowModal }) => {
       <motion.div variants = {childVariants}>
         {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}
       </motion.div>
+      <Loader />
     </motion.div>
   )
 }
