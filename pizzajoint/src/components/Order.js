@@ -31,20 +31,15 @@ const childVariants = {
 }
 
 const Order = ({ pizza }) => {
-  const [showTitle, setShowTitle] = useState(true);
-  setTimeout(() => {
-    setShowTitle(false);
-  },2000)
   return (
     <motion.div 
       className="container order"
       variants = { containerVariants }
       initial = "hidden"
       animate = "visible"
+      exit = {{ x: '-100vw', transition: { ease: "easeInOut" } }}
     >
-      <AnimatePresence>
-        { showTitle && <motion.h2  exit = {{y: -1000, scale: 0.2}}>Thank you for your order :)</motion.h2> }
-      </AnimatePresence>
+      <h2>Thank you for your order :)</h2>
       <motion.p variants = {childVariants}>You ordered a {pizza.base} pizza with:</motion.p>
       <motion.div variants = {childVariants}>
         {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}

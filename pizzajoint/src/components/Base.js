@@ -42,6 +42,7 @@ const Base = ({ addBase, pizza }) => {
       variants = { containerVariants }
       initial = "hidden"
       animate = "visible" // THESE PROPERIES WILL PROPOGATE DOWN TO CHILDREN
+      exit = {{ x: '-100vw', transition: { ease: "easeInOut" } }}
     >
 
       <h3>Step 1: Choose Your Base</h3>

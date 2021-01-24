@@ -20,6 +20,7 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.8, duration: 1.5 }} // Duration only with tween type
+      exit = {{ x: '-100vw', transition: { ease: "easeInOut" } }}
     >
       <h2>
         Welcome to Pizza Joint

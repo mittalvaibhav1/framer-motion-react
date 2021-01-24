@@ -29,6 +29,7 @@ const Toppings = ({ addTopping, pizza }) => {
       variants = { containerVariants }
       initial = "hidden"
       animate = "visible"
+      exit = {{ x: '-100vw', transition: { ease: "easeInOut" } }}
     >  
       <h3>Step 2: Choose Toppings</h3>
       <ul>
