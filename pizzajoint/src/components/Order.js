@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const containerVariants = {
   hidden: {
@@ -31,6 +31,10 @@ const childVariants = {
 }
 
 const Order = ({ pizza }) => {
+  const [showTitle, setShowTitle] = useState(true);
+  setTimeout(() => {
+    setShowTitle(false);
+  },2000)
   return (
     <motion.div 
       className="container order"
@@ -38,7 +42,9 @@ const Order = ({ pizza }) => {
       initial = "hidden"
       animate = "visible"
     >
-      <h2>Thank you for your order :)</h2>
+      <AnimatePresence>
+        { showTitle && <motion.h2  exit = {{y: -1000, scale: 0.2}}>Thank you for your order :)</motion.h2> }
+      </AnimatePresence>
       <motion.p variants = {childVariants}>You ordered a {pizza.base} pizza with:</motion.p>
       <motion.div variants = {childVariants}>
         {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}
